@@ -19,6 +19,30 @@
 </ul> -->
 
 <div class="container">
-  <h1> This retrieves stuff from GitHub</h1>
-</div>
+  <h1> This application calls the GitHub API</h1>
+  <br>
 
+  <div class="jumbotron">
+    <form>
+      <div class="form-group">
+        <label for="language">Enter a language to find</label>
+        <input required id="lang" class="form-control" type="text" placeholder="Enter language" #language>
+      </div>
+      <button type="button" class="btn btn-default" (click)="getAngular(language.value)">Click me to get the number of repositories!</button>
+    </form>
+
+    <!-- <button class="btn btn-default" (click)="getAngular()">Get number of angular repos</button> -->
+
+    <br>
+    <br>
+
+    <form>
+      <div class="form-group">
+        <label for="name">Enter a name to find</label>
+        <input required id="uName" class="form-control" type="text" placeholder="Enter name" #uName>
+      </div>
+      <button type="button" class="btn btn-default" (click)="callSearch(uName.value)">Click me to get the number of users!</button>
+    </form>
+  </div>
+
+</div>

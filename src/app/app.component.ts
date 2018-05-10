@@ -11,12 +11,34 @@ export class AppComponent implements OnInit {
   constructor(private GitSearchService: GitSearchService) {
 
   }
-  ngOnInit() {
-    this.GitSearchService.gitSearch('angular').then( (response) => {
+  ngOnInit(){
+
+  }
+  // ngOnInit() {
+  //   this.GitSearchService.gitSearch('angular').then( (response) => {
+  //     alert("Total Libraries Found: " + response.total_count)
+  //   }, (error) => {
+  //     alert("Error: " + error.statusText)
+  //   })
+  // }
+
+  getAngular(language: string){
+    console.log(language);
+    this.GitSearchService.gitSearch(language).then( (response) => {
       alert("Total Libraries Found: " + response.total_count)
     }, (error) => {
       alert("Error: " + error.statusText)
     })
   }
+
+  callSearch(userName: string) {
+    console.log(userName);
+    this.GitSearchService.gitUsers(userName).then( (response) => {
+      alert("Total Users with the name " + userName + " Found: " + response.total_count)
+  }, (error) => {
+    alert("Error: " + error.statusText)
+  })
+  }
+
   title = 'GitHub Browser';
 }
